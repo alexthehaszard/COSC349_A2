@@ -16,7 +16,6 @@ With docker/docker-compose installed and running, use the command:
 
     docker-compose -f docker-compose.yml up
 
-- MariaDB database, this is initialized with the name JobList and
-  the sql file in /docker-entrypoint-initdb.d will be run to initialize
-  the tables.
+- MariaDB database, this is initialized with the name JobList and all sql files (in alphabetical order) in /docker-entrypoint-initdb will be run to initialize the tables.
+
 - Adminer admin panel, can be accessed by viewing localhost:8080
