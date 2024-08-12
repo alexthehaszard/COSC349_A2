@@ -8,12 +8,36 @@ services:
     environment:
       MARIADB_ROOT_PASSWORD: password
       MARIADB_DATABASE: JobList
+    networks:
+      - BackendNetwork
     volumes:
       - type: bind
         source: ./docker-entrypoint-initdb.d
         target: /docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+
+  # general structure for backend API was inspired by:
+  # https://github.com/madhurajayashanka/docker-mysql-nodejs-reactjs-app/
+  api:
+    build:
+      context: ./API
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - BackendNetwork
+    depends_on:
+      - db
+
   adminer:
     image: adminer
     restart: always
+    networks:
+      - BackendNetwork
     ports:
       - 8080:8080
+
+networks:
+  BackendNetwork: # Defines the 'sameNetworkAsMysql' network
+    driver: bridge # Specifies the network driver as 'bridge'
