@@ -29,29 +29,6 @@ const databaseInit = () => {
   });
 };
 
-const createDatabase = () => {
-  con.query("CREATE DATABASE IF NOT EXISTS appdb", (err, results) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log("Database created successfully");
-  });
-};
-
-const createTable = () => {
-  con.query(
-    "CREATE TABLE IF NOT EXISTS apptb (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255))",
-    (err, results) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log("Table created successfully");
-    }
-  );
-};
-
 // GET request
 app.get("/job", (req, res) => {
   databaseInit();
@@ -69,7 +46,7 @@ app.get("/job", (req, res) => {
 app.post("/job", (req, res) => {
   con.query(
     "INSERT INTO Jobs (Job_Num, Issue) VALUES (?, ?)",
-    [req.body.data],
+    [req.query.jobnum, req.query.issue],
     (err, results) => {
       if (err) {
         console.error(err);
