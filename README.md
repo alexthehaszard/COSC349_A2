@@ -20,4 +20,6 @@ With docker/docker-compose installed and running, use the command:
 
 - Adminer admin panel, can be accessed by viewing localhost:8080
 
-- Backend API using NodeJS and express, accessed at localhost:3000. To send a get request on the joblist table, view localhost:3000/job. For each SELECT, INSERT and UPDATE request we may send to the DB, we must send these requests through GET and POST requests to this API.
+- Backend API using NodeJS and express, accessed at localhost:3001. To send a get request on the joblist table, view localhost:3001/job. For each SELECT, INSERT and UPDATE request we may send to the DB, we must send these requests through GET and POST requests to this API.
+
+- Frontend React app, performs a GET request to the backend API to print data in DB. Accessed through localhost:3000

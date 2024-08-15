@@ -31,7 +31,8 @@ const databaseInit = () => {
 
 // GET request
 app.get("/job", (req, res) => {
-  databaseInit();
+  // If we aren't connected, connect.
+  if (con == null) databaseInit();
   con.query("SELECT * FROM Jobs", (err, results) => {
     if (err) {
       console.error(err);
@@ -59,6 +60,6 @@ app.post("/job", (req, res) => {
 });
 
 // Start the server
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(3001, () => {
+  console.log("Server running on port 3001");
 });

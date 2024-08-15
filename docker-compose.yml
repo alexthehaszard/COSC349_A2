@@ -24,11 +24,22 @@ services:
       context: ./API
       dockerfile: Dockerfile
     ports:
-      - 3000:3000
+      - 3001:3001
     networks:
       - BackendNetwork
     depends_on:
       - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    networks:
+      - BackendNetwork
+    depends_on:
+      - api
 
   adminer:
     image: adminer

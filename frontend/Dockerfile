@@ -14,7 +14,9 @@ RUN npm install
 COPY . .
 
 # Expose the port that the application listens on
-EXPOSE 3001
+EXPOSE 3000
 
 # Start the Node.js application
-CMD [ "npm", "start" ]
+RUN npm run build
+RUN npm install -g serve
+CMD ["serve", "-s", "build"]

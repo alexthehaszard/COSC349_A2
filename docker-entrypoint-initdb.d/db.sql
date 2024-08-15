@@ -7,11 +7,10 @@ create table Jobs (
     Job_Desc varchar(255) NOT NULL,
     Creation_Date date default current_date,
     Due_Date date,
-    Address_ varchar(255),
-    
+    Address_ varchar(255)
 );
 
 
-insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (1, "Pothole", '05-08-2025', "34 addy st");
-insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (2, "Fallen Tree", "06-08-2025", "35 addy st");
-insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (3, "Line Painting", "07-08-2025", "42 addy st");
+insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (1, "Pothole", "2025-05-08", "34 addy st");
+insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (2, "Fallen Tree", "2025-06-08", "35 addy st");
+insert into Jobs (Job_ID, Job_Desc, Due_Date, Address_) values (3, "Line Painting", "2025-07-08", "42 addy st");
