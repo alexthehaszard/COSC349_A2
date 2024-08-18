@@ -3,7 +3,7 @@
 drop table if exists Jobs;
 
 create table Jobs (
-    Job_ID int primary key,
+    Job_ID int primary key auto_increment,
     Job_Desc varchar(255) NOT NULL,
     Creation_Date date default current_date,
     Due_Date date,

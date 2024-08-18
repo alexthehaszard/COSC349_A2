@@ -45,9 +45,11 @@ app.get("/job", (req, res) => {
 
 // POST request
 app.post("/job", (req, res) => {
+  // If we aren't connected, connect.
+  if (con == null) databaseInit();
   con.query(
-    "INSERT INTO Jobs (Job_Num, Issue) VALUES (?, ?)",
-    [req.query.jobnum, req.query.issue],
+    "INSERT INTO Jobs (Job_Desc, Due_Date, Address_) VALUES (?, ?, ?)",
+    [req.query.jobdesc, req.query.duedate, req.query.address],
     (err, results) => {
       if (err) {
         console.error(err);
