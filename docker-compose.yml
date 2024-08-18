@@ -20,6 +20,7 @@ services:
   # general structure for backend API was inspired by:
   # https://github.com/madhurajayashanka/docker-mysql-nodejs-reactjs-app/
   api:
+    restart: always
     build:
       context: ./API
       dockerfile: Dockerfile
@@ -31,6 +32,7 @@ services:
       - db
 
   frontend:
+    restart: always
     build:
       context: ./frontend
       dockerfile: Dockerfile
