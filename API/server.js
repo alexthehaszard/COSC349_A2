@@ -47,18 +47,37 @@ app.get("/job", (req, res) => {
 app.post("/job", (req, res) => {
   // If we aren't connected, connect.
   if (con == null) databaseInit();
-  con.query(
-    "INSERT INTO Jobs (Job_Desc, Due_Date, Address_) VALUES (?, ?, ?)",
-    [req.query.jobdesc, req.query.duedate, req.query.address],
-    (err, results) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send("Error retrieving data from database");
-      } else {
-        res.json(results);
+  console.log(req.body);
+  if (req.body.jobid) {
+      
+    con.query(
+      
+      "INSERT INTO Jobs (Job_ID, Job_Desc, Due_Date, Address_) VALUES (?, ?, ?, ?)",
+      [req.body.jobid, req.body.jobdesc, req.body.duedate, req.body.address],
+      (err, results) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send("Error retrieving data from database");
+        } else {
+          res.json(results);
+        }
       }
-    }
-  );
+    );
+  } else { // if no jobid is provided
+    con.query(
+      
+      "INSERT INTO Jobs (Job_Desc, Due_Date, Address_) VALUES (?, ?, ?)",
+      [req.body.jobdesc, req.body.duedate, req.body.address],
+      (err, results) => {
+        if (err) {
+          console.error(err);
+          res.status(500).send("Error retrieving data from database");
+        } else {
+          res.json(results);
+        }
+      }
+    );
+  }
 });
 
 // Start the server
