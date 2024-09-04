@@ -1,0 +1,17 @@
+.job-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.job-form > button {
+  margin: 0.25em;
+}
+
+.job-form > div {
+  width: 110%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25em 0;
+  border-bottom: 1px solid black;
+}

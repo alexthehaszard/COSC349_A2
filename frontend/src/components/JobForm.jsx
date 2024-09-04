@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./JobForm.css";
 
 function JobForm() {
   const initialFormData = {
-    jobid: '',
-    jobdesc: '',
-    duedate: '',
-    address: ''
+    jobid: "",
+    jobdesc: "",
+    duedate: "",
+    address: "",
   };
 
   const [formData, setFormData] = useState(initialFormData);
-
- 
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -20,16 +19,16 @@ function JobForm() {
     });
   };
 
-  const handleSubmit = async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const response = await fetch("http://localhost:3001/job", {
-        method: 'POST',
+        method: "POST",
         body: JSON.stringify(formData),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       });
 
       if (response.ok) {
@@ -42,42 +41,55 @@ function JobForm() {
     } catch (error) {
       console.error("error occurred:", error);
     }
-  
-    
-
   };
 
   return (
-    <form onSubmit={handleSubmit}><div><label htmlFor="Job_ID">Job ID:</label><input
+    <form className="job-form" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="jobid">Job ID (optional):</label>
+        <input
           type="number"
-          id="Job_ID"
+          id="jobid"
           name="jobid"
           value={formData.jobid}
           onChange={handleChange}
-          
-          
-        /></div><div><label htmlFor="Job_Desc">Job Description:</label><input
+        />
+      </div>
+      <div>
+        <label htmlFor="jobdesc">Job Description:</label>
+        <input
           type="text"
           id="jobdesc"
           name="jobdesc"
           value={formData.jobdesc}
           onChange={handleChange}
           required
-        /></div><div><label htmlFor="Due_Date">Due Date:</label><input
+        />
+      </div>
+      <div>
+        <label htmlFor="duedate">Due Date:</label>
+        <input
           type="date"
           id="duedate"
           name="duedate"
           value={formData.duedate}
           onChange={handleChange}
           required
-        /></div><div><label htmlFor="Address_">Address:</label><input
+        />
+      </div>
+      <div>
+        <label htmlFor="address">Address:</label>
+        <input
           type="text"
           id="address"
           name="address"
           value={formData.address}
           onChange={handleChange}
           required
-        /></div><button type="submit">Submit</button></form>
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 }
 
