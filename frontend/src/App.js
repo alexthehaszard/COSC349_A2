@@ -11,7 +11,11 @@ function App() {
       <button onClick={() => setShowForm(!showForm)}>
         {showForm ? "Return to Job List" : "Add new job"}
       </button>
-      {showForm ? <JobForm></JobForm> : <JobList></JobList>}
+      {showForm ? (
+        <JobForm setShowForm={setShowForm} /> // Pass setShowForm as a prop
+      ) : (
+        <JobList />
+      )}
     </div>
   );
 }

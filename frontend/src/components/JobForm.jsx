@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./JobForm.css";
 
-function JobForm() {
+function JobForm({ setShowForm }) {
   const initialFormData = {
     jobid: "",
     jobdesc: "",
@@ -35,6 +35,7 @@ function JobForm() {
         // If the form submission is successful, clear the form
         setFormData(initialFormData);
         console.log("Form submitted and cleared");
+        setShowForm(false)
       } else {
         console.error("Form submission failed");
       }
