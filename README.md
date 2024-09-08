@@ -1,6 +1,6 @@
-# COSC349_A1
+# Job Logger
 
-3 vms doing different things
+A simple software solution for organizations to log jobs for workers to do
 
 ## Idea 1
 
