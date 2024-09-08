@@ -2,20 +2,17 @@
 
 A simple software solution for organizations to log jobs for workers to do
 
-## Idea 1
-
-A todo list for organisations
-
-- workers or the public can amend jobs through a web interface
-- jobs are stored in a database
-- organizations can view and organize (pun intended) those jobs
-
-## Docker containers:
+## How to Operate
+Head to [this](https://www.docker.com/products/docker-desktop/) website to download Docker Desktop if your system does not have it already
 
 With docker/docker-compose installed and running, use the command:
 
     docker-compose -f docker-compose.yml up
 
+Visit [localhost:3000](http://localhost:3000/) to view the main application
+
+
+# Details
 - MariaDB database, this is initialized with the name JobList and all sql files (in alphabetical order) in /docker-entrypoint-initdb will be run to initialize the tables.
 
 - Adminer admin panel, can be accessed through port 8080
