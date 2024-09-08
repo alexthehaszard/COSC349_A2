@@ -5,7 +5,7 @@ A simple software solution for organizations to log jobs for workers to do
 ## How to Operate
 Head to [this](https://www.docker.com/products/docker-desktop/) website to download Docker Desktop if your system does not have it already
 
-With docker/docker-compose installed and running, use the command:
+With docker/docker-compose installed and running, use the command from the root of the cloned repository:
 
     docker-compose -f docker-compose.yml up
 
