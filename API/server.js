@@ -10,11 +10,11 @@ app.use(bodyParser.json());
 
 // Create a connection to the MySQL database
 const mysqlConfig = {
-  host: process.env.DB_HOST || "db",
-  port: process.env.DB_PORT || "3306",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "password",
-  database: process.env.DB_NAME || "JobList",
+  host: "db",
+  port: "3306",
+  user: "admin",
+  password: "password",
+  database: "JobList",
 };
 
 let con = null;
@@ -49,9 +49,7 @@ app.post("/job", (req, res) => {
   if (con == null) databaseInit();
   console.log(req.body);
   if (req.body.jobid) {
-      
     con.query(
-      
       "INSERT INTO Jobs (Job_ID, Job_Desc, Due_Date, Address_) VALUES (?, ?, ?, ?)",
       [req.body.jobid, req.body.jobdesc, req.body.duedate, req.body.address],
       (err, results) => {
@@ -63,9 +61,9 @@ app.post("/job", (req, res) => {
         }
       }
     );
-  } else { // if no jobid is provided
+  } else {
+    // if no jobid is provided
     con.query(
-      
       "INSERT INTO Jobs (Job_Desc, Due_Date, Address_) VALUES (?, ?, ?)",
       [req.body.jobdesc, req.body.duedate, req.body.address],
       (err, results) => {
@@ -81,6 +79,6 @@ app.post("/job", (req, res) => {
 });
 
 // Start the server
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+app.listen(80, () => {
+  console.log("Server running on port 80");
 });

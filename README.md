@@ -6,6 +6,70 @@ A simple software solution for organizations to log jobs for workers to do
 
 This is designed to be run using AWS, with an RDS instance hosting a MariaDB database, S3 bucket for static web hosting, and an EC2 instance for the API.
 
+## Database & API setup
+
+### EC2 setup for API
+
+To setup the API in AWS, we will first create an EC2 instance.
+
+I used all default settings, except in the "Network settings" section, I will tick the "Allow HTTP traffic from the internet". This will open up the HTTP port for the API.
+
+### RDS setup for Database
+
+To setup the database in AWS, we will first create an RDS instance.
+
+- Choose the MariaDB engine, and choose a template for your needs.
+- For credentials, I chose to use a self-managed password. If you use a username that is not the default (admin), then this will need to be changed in the API configuration.
+- In "Connectivity", we will select "Connect to and EC2 compute resource", and then select the EC2 instance we just set up.
+
+You can then select "Create database".
+
+### Connecting API and Database
+
+To connect the API and Database, we will be connecting to the API. To do this, go to the EC2 instance settings, and click "Connect" to get options for connecting.
+
+Once connected, we will need to install MariaDB, git and npm (node package manager). This can be done by running the command
+
+    sudo dnf install mariadb105 git npm
+
+We will now clone the repository by running:
+
+    git clone https://github.com/alexthehaszard/COSC349_A2.git
+
+Then, to initialize the database, run the command (replace with your database endpoint, can be found in the RDS dashboard):
+
+    mariadb -h [your_database_endpoint] -u admin -p -P 3306 < COSC349_A2/db.sql
+
+To start the API, we will first go into the API directory, and install any dependencies needed.
+
+    cd COSC349_A2/API
+    npm install
+
+To edit the DB endpoint, and credentials we can open the server.js file by running
+
+    nano server.js
+
+and changing the mysqlConfig variable, with
+
+```
+{
+    host: "your_db_endpoint",
+    port: "3306",
+    user: "admin",
+    password: "your_password"
+}
+```
+
+Finally, we can start the API service. We will first run
+
+    screen
+
+to make the API keep running even after disconnecting from the SSH session. Then, run
+
+    sudo node server.js
+
+Your API should now be up and running and connected to your database.
+
 ## Frontend setup
 
 ### Local setup
