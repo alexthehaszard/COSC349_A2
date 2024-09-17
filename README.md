@@ -38,7 +38,7 @@ We will now clone the repository by running:
 
 Then, to initialize the database, run the command (replace with your database endpoint, can be found in the RDS dashboard):
 
-    mariadb -h [your_database_endpoint] -u admin -p -P 3306 < COSC349_A2/db.sql
+    mariadb -h your_database_endpoint -u admin -p -P 3306 < COSC349_A2/db.sql
 
 To start the API, we will first go into the API directory, and install any dependencies needed.
 
@@ -78,7 +78,7 @@ To use the frontend, you will need to first setup the API_URL environment variab
 To do this, create a file in /frontend called ".env" and set the "REACT_APP_API_URL" variable to your public IP address hosting the API.
 This can be done by running the command
 
-    echo "REACT_APP_API_URL=[your_url_here]" > .env
+    echo "REACT_APP_API_URL=your_url_here" > .env
 
 You can then either run the frontend locally by running
 
