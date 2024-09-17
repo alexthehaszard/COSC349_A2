@@ -1,5 +1,8 @@
 -- the SQL in this file will be run in the JobList DB in MariaDB
 -- very simple job tuple with some init jobs to start us off
+create database JobList;
+use JobList;
+
 drop table if exists Jobs;
 
 create table Jobs (
