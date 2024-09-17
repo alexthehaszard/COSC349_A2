@@ -4,7 +4,7 @@ const JobList = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/job")
+    fetch(`http://${process.env.REACT_APP_API_URL}/job`)
       .then((response) => response.json())
       .then((data) => setJobs(data));
   }, [jobs]);
@@ -25,7 +25,7 @@ const JobList = () => {
               <td>{job.Job_ID}</td>
               <td>{job.Job_Desc}</td>
               <td>{job.Address_}</td>
-              <td>{job.Creation_Date.substring(0, 10)}</td> 
+              <td>{job.Creation_Date.substring(0, 10)}</td>
               <td>{job.Due_Date.substring(0, 10)}</td>
             </tr>
           );

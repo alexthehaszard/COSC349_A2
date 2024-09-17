@@ -23,19 +23,22 @@ function JobForm({ setShowForm }) {
     event.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3001/job", {
-        method: "POST",
-        body: JSON.stringify(formData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `http://${process.env.REACT_APP_API_URL}/job`,
+        {
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         // If the form submission is successful, clear the form
         setFormData(initialFormData);
         console.log("Form submitted and cleared");
-        setShowForm(false)
+        setShowForm(false);
       } else {
         console.error("Form submission failed");
       }
