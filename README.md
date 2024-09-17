@@ -45,8 +45,7 @@ or, if you want to host it in AWS, run the command:
   }
 ```
 
-- You can then add upload all files in the "build" folder through the "objects" tab (I just drag-and-dropped)
-
+- You can then upload all files in the "build" folder through the "objects" tab (I just drag-and-dropped)
 - Finally, you can enable static web hosting at the bottom of the properties tab.
 
 The frontend will now be visible at the bucket's website endpoint, which can be found at the bottom of the properties tab
