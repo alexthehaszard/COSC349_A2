@@ -74,6 +74,8 @@ Your API should now be up and running and connected to your database.
 
 ### Local setup
 
+For these next steps, you will need to clone the repo onto your local machine.
+
 To use the frontend, you will need to first setup the API_URL environment variable.
 To do this, create a file in /frontend called ".env" and set the "REACT_APP_API_URL" variable to your public IP address hosting the API.
 This can be done by running the command
