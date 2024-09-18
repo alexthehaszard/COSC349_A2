@@ -82,6 +82,17 @@ This can be done by running the command in the frontend directory
 
     echo "REACT_APP_API_URL=your_url_here" > .env
 
+Note: If the frontend host doesn't work, this is a known issue. Follow the steps below for a temporary workaround.
+
+    fetch(`http://your db ip address/job`)
+on line 7 of JobList.jsx
+
+    http://your db ip address/job,
+on line 27 of JobForm.jsx
+
+![image](https://github.com/user-attachments/assets/6d819b72-e7bd-4876-a332-5b24c7edbdb2)
+
+
 You can then either run the frontend locally by running
 
     npm start
@@ -113,6 +124,7 @@ or, if you want to host it in AWS, run the command:
 ```
 
 - You can then upload all files in the "build" folder through the "objects" tab (I just drag-and-dropped)
+- Try to drag all the files individually and not the 'build' folder
 - Finally, you can enable static web hosting at the bottom of the properties tab.
 
 The frontend will now be visible at the bucket's website endpoint, which can be found at the bottom of the properties tab
