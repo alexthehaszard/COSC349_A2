@@ -78,7 +78,7 @@ For these next steps, you will need to clone the repo onto your local machine.
 
 To use the frontend, you will need to first setup the API_URL environment variable.
 To do this, create a file in /frontend called ".env" and set the "REACT_APP_API_URL" variable to your public IP address hosting the API.
-This can be done by running the command
+This can be done by running the command in the frontend directory
 
     echo "REACT_APP_API_URL=your_url_here" > .env
 
@@ -105,7 +105,7 @@ or, if you want to host it in AWS, run the command:
             "Effect": "Allow",
             "Principal": "_",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::PUT YOUR BUCKET NAME HERE/_"
+            "Resource": "arn:aws:s3:::hasal314-joblist/_"
         }
     ]
   }
