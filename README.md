@@ -95,6 +95,7 @@ or, if you want to host it in AWS, run the command:
 - To host the frontend, create a new S3 bucket and disable the "block all public access" setting.
 - Then, you will need to set permissions to allow connections to all objects, by adding this to the bucket policy (you will need to replace "hasal314-joblist" with the name of your bucket)
 
+- Make sure the name matches your bucket name exactly, I.E "arn:aws:s3:::insert_name_here/_"
 ```
   {
     "Version": "2012-10-17",
