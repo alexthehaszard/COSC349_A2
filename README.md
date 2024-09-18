@@ -84,10 +84,10 @@ This can be done by running the command in the frontend directory
 
 Note: If the frontend host doesn't work, this is a known issue. Follow the steps below for a temporary workaround.
 
-    fetch(`http://your db ip address/job`)
+    fetch(`http://your ec2 ip address/job`)
 on line 7 of JobList.jsx
 
-    http://your db ip address/job,
+    http://your db ec2 address/job,
 on line 27 of JobForm.jsx
 
 ![image](https://github.com/user-attachments/assets/6d819b72-e7bd-4876-a332-5b24c7edbdb2)
