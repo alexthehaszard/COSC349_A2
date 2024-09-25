@@ -128,3 +128,14 @@ or, if you want to host it in AWS, run the command:
 - Finally, you can enable static web hosting at the bottom of the properties tab.
 
 The frontend will now be visible at the bucket's website endpoint, which can be found at the bottom of the properties tab
+
+
+# Costs of running
+
+To estimate the costs of running this service, I will use the [AWS Calculator](https://calculator.aws).
+
+- The EC2 costs can be reduced to zero if using the Free Tier, as well as the S3 storage setup for the static web hosting.
+- The costs of running the RDS instance monthly will be around $40.26, which can vary depending on the storage and speed requirements.
+- The costs of running the Virtual Private Cloud (VPC) instance, it will cost around $36.50 per month.
+
+This brings the total cost to around $76.76 per month.
