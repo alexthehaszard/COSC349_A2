@@ -83,13 +83,19 @@ This can be done by running the command in the frontend directory
 
     echo "REACT_APP_API_URL=your_url_here" > .env
 
-Note: If the frontend host doesn't work, this is a known issue. Follow the steps below for a temporary workaround.
+Then run  
+
+    npm install
+
+to install all required packages for the frontend.
+
+*Note: If the frontend host doesn't work, this is a known issue. Follow the steps below for a temporary workaround.
 
     fetch(`http://your ec2 ip address/job`)
 on line 7 of JobList.jsx
 
     http://your db ec2 address/job,
-on line 27 of JobForm.jsx
+on line 27 of JobForm.jsx*
 
 ![image](https://github.com/user-attachments/assets/6d819b72-e7bd-4876-a332-5b24c7edbdb2)
 
