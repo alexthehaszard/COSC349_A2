@@ -89,16 +89,7 @@ Then run
 
 to install all required packages for the frontend.
 
-*Note: If the frontend host doesn't work, this is a known issue. Follow the steps below for a temporary workaround.
-
-    fetch(`http://your ec2 ip address/job`)
-on line 7 of JobList.jsx
-
-    http://your db ec2 address/job,
-on line 27 of JobForm.jsx*
-
 ![image](https://github.com/user-attachments/assets/6d819b72-e7bd-4876-a332-5b24c7edbdb2)
-
 
 You can then either run the frontend locally by running
 
@@ -107,6 +98,9 @@ You can then either run the frontend locally by running
 or, if you want to host it in AWS, run the command:
 
     npm run build
+
+
+*Note: If the environment variables aren't loading, i.e. your web requests are being sent to "undefined", view [Issue #1](https://github.com/alexthehaszard/COSC349_A2/issues/1)
 
 ### AWS setup
 
