@@ -106,7 +106,7 @@ You can then either run the frontend locally by running
 
 or, if you want to host it in AWS, run the command:
 
-    npm build
+    npm run build
 
 ### AWS setup
 
