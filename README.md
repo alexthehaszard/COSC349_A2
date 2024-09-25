@@ -19,6 +19,7 @@ I used all default settings, except in the "Network settings" section, I will ti
 To setup the database in AWS, we will first create an RDS instance.
 
 - Choose the MariaDB engine, and choose a template for your needs.
+- For this demonstration, the "Free Tier" will do just fine, so select this.
 - For credentials, I chose to use a self-managed password. If you use a username that is not the default (admin), then this will need to be changed in the API configuration.
 - In "Connectivity", we will select "Connect to and EC2 compute resource", and then select the EC2 instance we just set up.
 
