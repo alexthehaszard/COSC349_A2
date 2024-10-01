@@ -23,6 +23,7 @@ function JobForm({ setShowForm }) {
     event.preventDefault();
 
     try {
+      console.log(process.env.REACT_APP_API_URL);
       const response = await fetch(
         `http://${process.env.REACT_APP_API_URL}/job`,
         {
