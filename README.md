@@ -4,8 +4,7 @@ A simple software solution for organizations to log jobs for workers to do
 
 ## How to Operate
 
-This is designed to be run using AWS, with an RDS instance hosting a MariaDB database, S3 bucket for static web hosting, and an EC2 instance for the API.
-
+This is designed to be run using AWS, with an RDS instance hosting a MariaDB database, and 2 EC2 instances for the API and frontend hosting.
 ## Database & API setup
 
 ### EC2 setup for API
@@ -73,64 +72,39 @@ Your API should now be up and running and connected to your database.
 
 ## Frontend setup
 
-### Local setup
+### EC2 instance setup
 
-For these next steps, you will need to clone the repo onto your local machine.
+First, you will make an EC2 instance similarly to how you made the API's EC2 instance.
+I used all default settings, except in the "Network settings" section, I will tick the "Allow HTTP traffic from the internet". This will open up the HTTP port for the API.
 
-To use the frontend, you will need to first setup the API_URL environment variable.
+Next, connect to your EC2 instance and run the command:
+
+    sudo dnf install git npm
+
+### Frontend setup
+
+First, we will clone the repo using 
+
+    git clone https://github.com/alexthehaszard/COSC349_A2.git
+
+Then, you will need to setup the API_URL environment variable.
 To do this, create a file in /frontend called ".env" and set the "REACT_APP_API_URL" variable to your public IP address hosting the API.
-This can be done by running the command in the frontend directory
+This can be done by running these commands.
 
+    cd COSC349_A2/frontend
     echo "REACT_APP_API_URL=your_url_here" > .env
 
-Then run  
+Included in the repository is a script which automatically installs all necessary packages, builds, and runs the frontend on port 80 (HTTP).
+If you would like it to continue running after disconnecting from the SSH session, run the command
 
-    npm install
+    screen
+    
+Then, run the build script:
 
-to install all required packages for the frontend.
+    bash build.sh
 
-![image](https://github.com/user-attachments/assets/6d819b72-e7bd-4876-a332-5b24c7edbdb2)
-
-You can then either run the frontend locally by running
-
-    npm start
-
-or, if you want to host it in AWS, run the command:
-
-    npm run build
-
-
-*Note: If the environment variables aren't loading, i.e. your web requests are being sent to "undefined", view [Issue #1](https://github.com/alexthehaszard/COSC349_A2/issues/1)
-
-### AWS setup
-
-- To host the frontend, create a new S3 bucket and disable the "block all public access" setting.
-- Then, you will need to set permissions to allow connections to all objects, by adding this to the bucket policy (you will need to replace "hasal314-joblist" with the name of your bucket)
-
-- Make sure the name matches your bucket name exactly, I.E "arn:aws:s3:::insert_name_here/_"
-```
-  {
-    "Version": "2012-10-17",
-    "Statement":
-    [
-        {
-            "Sid": "Allow Public Access to All Objects",
-            "Effect": "Allow",
-            "Principal": "_",
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::hasal314-joblist/_"
-        }
-    ]
-  }
-```
-
-- You can then upload all files in the "build" folder through the "objects" tab (I just drag-and-dropped)
-- Try to drag all the files individually and not the 'build' folder
-- Finally, you can enable static web hosting at the bottom of the properties tab.
-
-The frontend will now be visible at the bucket's website endpoint, which can be found at the bottom of the properties tab
-
-
+Your frontend should now be running, and can be visited using the endpoint of the EC2 instance.
+    
 # Costs of running
 
 To estimate the costs of running this service, I will use the [AWS Calculator](https://calculator.aws).
