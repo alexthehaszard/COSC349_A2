@@ -7,7 +7,7 @@ const JobList = () => {
     fetch(`http://${process.env.REACT_APP_API_URL}/job`)
       .then((response) => response.json())
       .then((data) => setJobs(data));
-  }, [jobs]);
+  }, []);
 
   return (
     <div>
