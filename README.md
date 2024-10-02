@@ -109,7 +109,7 @@ Your frontend should now be running, and can be visited using the endpoint of th
 
 To estimate the costs of running this service, I will use the [AWS Calculator](https://calculator.aws).
 
-- The EC2 costs can be reduced to zero if using the Free Tier, as well as the S3 storage setup for the static web hosting.
+- The EC2 costs can be reduced to zero if using the Free Tier.
 - The costs of running the RDS instance monthly will be around $40.26, which can vary depending on the storage and speed requirements.
 - The costs of running the Virtual Private Cloud (VPC) instance, it will cost around $36.50 per month.
 
