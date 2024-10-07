@@ -109,8 +109,9 @@ Your frontend should now be running, and can be visited using the endpoint of th
 
 To estimate the costs of running this service, I will use the [AWS Calculator](https://calculator.aws).
 
-- The EC2 costs can be reduced to zero if using the Free Tier.
-- The costs of running the RDS instance monthly will be around $40.26, which can vary depending on the storage and speed requirements.
-- The costs of running the Virtual Private Cloud (VPC) instance, it will cost around $36.50 per month.
+-	The costs of the EC2 instances used in our application can be reduced to 0 for all usage patterns if using the free tier component set-ups. In our case, we are using t2.micro.
+-	The RDS database estimates costs around 30 USD for light usage (1instance 8/24 hours out of 730 hours a month) and 24.20 USD for idling (0 hours of utilization a month)
+-	The VPC estimates costs around 44 USD per month for light usage (5 connections, 8 hours a day for 22 working days a month) and 0 USD when no clients are connected.
 
-This brings the total cost to around $76.76 per month.
+In total, costs for running our application in lighter workloads adds to 74 USD or $118.70 NZD. For idling, our application costs around 24.20 USD or $38.82 NZD. It is important to note the costs may vary depending on your choice of instance class, vCPUs, storage etc.
+
